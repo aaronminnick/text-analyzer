@@ -4,6 +4,17 @@ function noInputtedWord(word, text) {
   return ((text.trim().length === 0) || (word.trim().length === 0));
 }
 
+function compareWordCount(a, b) {
+  if (a[1] < b[1]) {
+    return 1;
+  }
+  if (a[1] > b[1]) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
+}
+
 //Business Logic
 
 function wordCounter(text) {
@@ -38,11 +49,27 @@ function threeMostCommon(text) {
   const wordArray = text.split(" ");
   let targetArray = [];
   wordArray.forEach(function(word) {
-    targetArray.push([word, numberOfOccurrencesInText(word, text)]);
+    let alreadyHere = false;
+    targetArray.forEach(function(element) {
+      if (element.includes(word.toLowerCase())) {
+        alreadyHere = true;
+      };
+      });
+    if (!alreadyHere) {
+      targetArray.push([word.toLowerCase(), numberOfOccurrencesInText(word, text)]);
+    };
   });
-
+  targetArray.sort(compareWordCount);
   return targetArray.slice(0, 3);
 }
+
+
+
+
+
+
+// unshift method
+
 
  // some kind of check to make sure we aren't sending the same word more than 1 time to numberOfOccurrences - we could check against the existing values in targetarray
   // for each word in our text, run the numberOfOccurrencesInText(word, text)

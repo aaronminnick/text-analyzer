@@ -100,4 +100,16 @@ Test: "It should return an array of length 3. Each element of the array is a sma
 Code:
 const text = "red blue green yellow"
 threeMostCommon(text);
-Expected Ouput: [[red, 1] , [blue, 1] , [green, 1]]
+Expected Output: [[red, 1] , [blue, 1] , [green, 1]]
+
+Test: "It should return only one instance for each word despite repition"
+Code:
+const text = "blue blue blue red red green"
+threeMostCommon(text);
+Expected Output: [[blue, 3], [red, 2] [green, 1]]
+
+Test: "It should return an array that is sorted by the number of occurrences."
+Code: 
+const text = "red red red blue blue blue blue green green"
+threeMostCommon(text)
+Expected Output: [[blue, 4], [red, 3], [green, 2]]
