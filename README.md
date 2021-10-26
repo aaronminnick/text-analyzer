@@ -111,5 +111,31 @@ Expected Output: [[blue, 3], [red, 2] [green, 1]]
 Test: "It should return an array that is sorted by the number of occurrences."
 Code: 
 const text = "red red red blue blue blue blue green green"
-threeMostCommon(text)
+threeMostCommon(text);
 Expected Output: [[blue, 4], [red, 3], [green, 2]]
+
+Describe: badWords()
+
+Test: "It should return a string."
+Code:
+const text = "I like pizza"
+badWords(text);
+Expected Output: "I like pizza"
+
+Test: "It should not accept an empty string."
+Code:
+const text = ""
+badWords(text);
+Expected Output: null
+
+Test: "It should only accept a string."
+Code:
+const text = 300
+badWords(text);
+Expected Output: null
+
+Test: "It removes the following words when returned: zoinks, muppeteer, biffaroni, and loopdaloop"
+Code:
+const text = "Holy zoinks, I'm a muppeteer, if only biffaroni, and I love loopdaloop"
+badWords(text);
+Expected Output: "Holy I'm a if only and I love"

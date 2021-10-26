@@ -54,7 +54,7 @@ function threeMostCommon(text) {
       if (element.includes(word.toLowerCase())) {
         alreadyHere = true;
       };
-      });
+    });
     if (!alreadyHere) {
       targetArray.push([word.toLowerCase(), numberOfOccurrencesInText(word, text)]);
     };
@@ -63,23 +63,25 @@ function threeMostCommon(text) {
   return targetArray.slice(0, 3);
 }
 
+function badWords(text) {
+  if (typeof text !== 'string') {
+    return null;
+  } 
+  if (text.trim().length === 0) {
+    return null;
+  }
+  let badArray = text.split(" ");
+  badArray.forEach(function(element, index) {
+    if (element.includes("zoinks") || element.includes("muppeteer") || element.includes("biffaroni") || element.includes("loopdaloop")) {
+      badArray.splice(index, 1);
+    } 
+  });
+  text = badArray.join(" ");
+  
+  return text;
+}
 
-
-
-
-
-// unshift method
-
-
- // some kind of check to make sure we aren't sending the same word more than 1 time to numberOfOccurrences - we could check against the existing values in targetarray
-  // for each word in our text, run the numberOfOccurrencesInText(word, text)
-  // then store the return of that function in an array along with the word itself: [word, #]. push that onto an array of two element arrays
-
-  // targetArray = [[blah, 1], [bluh, 2]]
-  // sort our target array by the number of times value
-  // return the first three elements of the sorted array
-
-
+//for each word in the array we want to check if that element matches one of the "bad" words: zoinks, muppeteer, biffaroni, and loopdaloop
 
 //UI Logic
 
