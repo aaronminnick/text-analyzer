@@ -92,3 +92,12 @@ const word = "hello";
 const text = "hello";
 boldPassage(word, text);
 Expected Output: "<p><b>hello</b></p>"
+
+
+Describe: threeMostCommon()
+
+Test: "It should return an array of length 3. Each element of the array is a smaller array which should contain a word and a number which is the count of the word's occurrences."
+Code:
+const text = "red blue green yellow"
+threeMostCommon(text);
+Expected Ouput: [[red, 1] , [blue, 1] , [green, 1]]
